@@ -1,0 +1,70 @@
+create database ClinicaVeterinaria;
+use ClinicaVeterinaria;
+
+create table if not exists clientes (
+cliente_id int auto_increment primary key,
+nome varchar(100),
+telefone varchar(15),
+email varchar(100),
+endereco varchar(255)
+);
+
+create table if not exists aniamis (
+animal_id int auto_increment primary key,
+cliente_id int,
+nome varchar(100),
+especie varchar(50),
+raca varchar(50),
+data_nascimento date,
+sexo enum ("m","f")
+);
+
+create table if not exists veterinarios (
+veterinario_id int auto_increment primary key,
+nome varchar(100),
+especialidade varchar(50),
+telefone varchar(15),
+email varchar(100)
+);
+
+create table if not exists consultas (
+consultas_id int auto_increment primary key,
+animal_id int,
+veterinario_id int,
+data_consulta datetime,
+diagnostico text 
+);
+
+create table if not exists tratamentos (
+tratamento_id int auto_increment primary key,
+consulta_id int,
+descricao text,
+medicamento varchar(100),
+dose varchar(50)
+);
+
+create table if not exists pagamentos (
+pagamento_id int auto_increment primary key,
+consulta_id int,
+valor decimal(10,2),
+data_pagamento date,
+metodo_pagamento enum("dinheiro","cartao","transferencia")
+);
+
+insert into clientes (nome, telefone, email, endereco) values
+("Isabela","111111111111", "isabela@gmail.com"," Sao jose");
+
+insert into aniamis( nome,especie,raca,data_nascimento,sexo) values
+("Mel","gato","tricolor","11-11-11","f");
+
+insert into veterinarios( nome,especialidade,telefone,email) values
+("Cintya","veterinaria","222222222222","cintya@gmail.com");
+
+insert into consultas(data_consulta,diagnostico) values
+("2024-11-27","anemia");
+
+insert into tratamentos(descricao,medicamentos,dose) values
+("Ferro","comprimido","5g");
+
+insert into pagamentos(valor,data_pagamento,metodo_pagamento) values
+(2000,"2024-12-11","cartao");
