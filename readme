@@ -1,0 +1,76 @@
+ClinicaVeterinaria Database Management System
+
+Este projeto tem como objetivo desenvolver um sistema de gerenciamento de banco de dados para uma clínica veterinária. O sistema permitirá o registro e a gestão de informações sobre clientes, animais, veterinários, consultas, tratamentos e pagamentos. Através deste sistema, a clínica poderá melhorar a organização dos dados, facilitar o agendamento de consultas e acompanhar o histórico de tratamentos dos animais.
+
+README.md
+markdown
+# ClinicaVeterinaria Database Management System  
+
+## Descrição  
+
+Este projeto consiste em um sistema de gerenciamento de banco de dados para uma clínica veterinária. O sistema foi desenvolvido utilizando SQL e permite a administração eficiente de informações relacionadas a clientes, animais, veterinários, consultas, tratamentos e pagamentos.  
+
+## Estrutura do Banco de Dados  
+
+O banco de dados `ClinicaVeterinaria` contém as seguintes tabelas:  
+
+1. **clientes**: Armazena informações sobre os clientes da clínica.  
+   - `cliente_id`: Identificador único do cliente (chave primária).  
+   - `nome`: Nome do cliente.  
+   - `telefone`: Telefone do cliente.  
+   - `email`: Email do cliente.  
+   - `endereco`: Endereço do cliente.  
+
+2. **animais**: Armazena informações sobre os animais.  
+   - `animal_id`: Identificador único do animal (chave primária).  
+   - `cliente_id`: Identificador do cliente (chave estrangeira).  
+   - `nome`: Nome do animal.  
+   - `especie`: Espécie do animal.  
+   - `raca`: Raça do animal.  
+   - `data_nascimento`: Data de nascimento do animal.  
+   - `sexo`: Sexo do animal (m para macho, f para fêmea).  
+
+3. **veterinarios**: Armazena informações sobre os veterinários.  
+   - `veterinario_id`: Identificador único do veterinário (chave primária).  
+   - `nome`: Nome do veterinário.  
+   - `especialidade`: Especialidade do veterinário.  
+   - `telefone`: Telefone do veterinário.  
+   - `email`: Email do veterinário.  
+
+4. **consultas**: Armazena informações sobre as consultas realizadas.  
+   - `consultas_id`: Identificador único da consulta (chave primária).  
+   - `animal_id`: Identificador do animal (chave estrangeira).  
+   - `veterinario_id`: Identificador do veterinário (chave estrangeira).  
+   - `data_consulta`: Data e hora da consulta.  
+   - `diagnostico`: Diagnóstico realizado na consulta.  
+
+5. **tratamentos**: Armazena informações sobre os tratamentos prescritos.  
+   - `tratamento_id`: Identificador único do tratamento (chave primária).  
+   - `consulta_id`: Identificador da consulta (chave estrangeira).  
+   - `descricao`: Descrição do tratamento.  
+   - `medicamento`: Nome do medicamento.  
+   - `dose`: Dose do medicamento.  
+
+6. **pagamentos**: Armazena informações sobre os pagamentos realizados.  
+   - `pagamento_id`: Identificador único do pagamento (chave primária).  
+   - `consulta_id`: Identificador da consulta (chave estrangeira).  
+   - `valor`: Valor do pagamento.  
+   - `data_pagamento`: Data do pagamento.  
+   - `metodo_pagamento`: Método de pagamento utilizado.  
+
+## Como Executar  
+
+1. **Configuração do Banco de Dados**:  
+   - Certifique-se de ter um servidor de banco de dados SQL em funcionamento (MySQL, por exemplo).  
+   - Execute os comandos SQL fornecidos para criar o banco de dados e as tabelas.  
+
+2. **Inserção de Dados**:  
+   - Utilize os comandos de inserção para adicionar registros às tabelas conforme necessário.  
+
+3. **Consultas**:  
+   - Realize consultas SQL para obter informações sobre clientes, animais, consultas, etc.  
+
+## Contribuições  
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests.  
+ 
