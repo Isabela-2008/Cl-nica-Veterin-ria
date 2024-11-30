@@ -9,7 +9,7 @@ email varchar(100),
 endereco varchar(255)
 );
 
-create table if not exists aniamis (
+create table if not exists animais (
 animal_id int auto_increment primary key,
 cliente_id int,
 nome varchar(100),
@@ -17,6 +17,7 @@ especie varchar(50),
 raca varchar(50),
 data_nascimento date,
 sexo enum ("m","f")
+foreign key (cliente_id) references clientes(cliente_id)  
 );
 
 create table if not exists veterinarios (
@@ -32,7 +33,9 @@ consultas_id int auto_increment primary key,
 animal_id int,
 veterinario_id int,
 data_consulta datetime,
-diagnostico text 
+diagnostico text,
+foreign key (veterinario_id) references veterinarios (veterinario_id),
+foreign key (animal_id) references animais (animal_id) 
 );
 
 create table if not exists tratamentos (
